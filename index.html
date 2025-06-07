@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สุขสันต์วันเกิดนะคนพิเศษ!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --deep-purple: #2c1d3e; /* Slightly softer deep purple */
+      --neon-pink: #FF69B4; /* Hot Pink - still vibrant but can be used with pastels */
+      --electric-blue: #7DF9FF; /* Electric Blue - can be softened for cute glow */
+      --pastel-pink: #FFD1DC;
+      --pastel-lavender: #E6E6FA;
+      --light-purple: #a082c4; /* Softer light purple for links/accents */
+      --glow-pink-soft: rgba(255, 105, 180, 0.6);
+      --glow-blue-soft: rgba(125, 249, 255, 0.5);
+      --text-main: #f0e8ff; /* Lighter text for better contrast on new deep purple */
+    }
+
+    body {
+      font-family: 'Prompt', 'Kanit', sans-serif;
+      background-color: var(--deep-purple);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    /* Cute Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #3b2a4f; /* Darker pastel purple track */
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--pastel-pink), var(--pastel-lavender));
+      border-radius: 5px;
+      border: 1px solid var(--light-purple);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, var(--neon-pink), var(--electric-blue));
+    }
+
+    .shimmer {
+      position: relative;
+      overflow: hidden;
+      background-color: #4a3b5e; /* Base for shimmer, matching cute theme */
+    }
+    .shimmer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(230, 230, 250, 0.25), transparent); /* Softer lavender shimmer */
+      animation: shimmer-animation 1.8s infinite;
+    }
+    @keyframes shimmer-animation {
+      0% { transform: translateX(-150%); }
+      100% { transform: translateX(150%); }
+    }
+    
+    .text-neon-pink-cute {
+        color: var(--neon-pink);
+        text-shadow: 0 0 3px #fff, 0 0 7px var(--neon-pink), 0 0 10px var(--neon-pink);
+    }
+    .text-neon-blue-cute {
+        color: var(--electric-blue);
+        text-shadow: 0 0 3px #fff, 0 0 7px var(--electric-blue), 0 0 10px var(--electric-blue);
+    }
+
+    /* Birthday Cake CSS */
+    .birthday-cake-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1rem;
+      transform: scale(0.7); /* ลดขนาดเค้กลงอีก 30% */
+    }
+    .cake-base {
+      width: 120px; /* ลดความกว้างฐาน */
+      height: 25px; /* ลดความสูงฐาน */
+      background-color: #A0522D;
+      border-radius: 5px 5px 0 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 1;
+    }
+    .cake-layer {
+      width: 100px; /* ลดความกว้างชั้นเค้ก */
+      height: 45px; /* ลดความสูงชั้นเค้ก */
+      margin: 0 auto;
+      border-radius: 5px;
+      position: relative;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .cake-layer.bottom {
+      background-color: var(--pastel-pink);
+      width: 110px;
+      height: 50px;
+    }
+    .cake-layer.middle {
+      background-color: var(--pastel-lavender);
+      bottom: 5px;
+      height: 45px;
+    }
+    .cake-layer.top {
+      background-color: #fff8dc;
+      bottom: 8px;
+      height: 40px;
+      width: 90px;
+    }
+    .icing {
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 12px; /* ลดความสูงของไอซิ่ง */
+      background-image: 
+        radial-gradient(circle at 10px -5px, transparent 8px, var(--neon-pink) 9px),
+        radial-gradient(circle at 30px -5px, transparent 8px, var(--neon-pink) 9px),
+        radial-gradient(circle at 50px -5px, transparent 8px, var(--neon-pink) 9px),
+        radial-gradient(circle at 70px -5px, transparent 8px, var(--neon-pink) 9px),
+        radial-gradient(circle at 90px -5px, transparent 8px, var(--neon-pink) 9px);
+      background-size: auto 100%;
+      background-repeat: repeat-x;
+    }
+    .cake-layer.top .icing {
+      background-image: 
+        radial-gradient(circle at 10px -5px, transparent 6px, var(--electric-blue) 7px),
+        radial-gradient(circle at 25px -5px, transparent 6px, var(--electric-blue) 7px),
+        radial-gradient(circle at 40px -5px, transparent 6px, var(--electric-blue) 7px),
+        radial-gradient(circle at 55px -5px, transparent 6px, var(--electric-blue) 7px),
+        radial-gradient(circle at 70px -5px, transparent 6px, var(--electric-blue) 7px);
+    }
+    .candles {
+      display: flex;
+      justify-content: space-around;
+      width: 70%;
+      position: absolute;
+      bottom: 95%;
+      left: 15%;
+      z-index: 10;
+    }
+    .candle {
+      width: 6px; /* ลดความกว้างเทียน */
+      height: 25px; /* ลดความสูงเทียน */
+      background-color: #FFDEAD;
+      border-radius: 2px 2px 0 0;
+      position: relative;
+      box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);
+    }
+    .flame {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px; /* ลดความกว้างเปลวไฟ */
+      height: 15px; /* ลดความสูงเปลวไฟ */
+      background-color: #FFB000;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      box-shadow: 0 0 4px #FFB000, 0 0 8px #FF8C00, 0 0 12px #FF4500;
+      animation: flicker 0.5s infinite alternate ease-in-out;
+      transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    }
+    .flame.out {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.5) translateY(10px);
+    }
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scaleY(1) scaleX(1); opacity: 1; }
+      50% { transform: translateX(-45%) scaleY(0.95) scaleX(1.05); opacity: 0.8; }
+      100% { transform: translateX(-55%) scaleY(1.05) scaleX(0.95); opacity: 1; }
+    }
+    .smoke {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 15px;
+      background-color: rgba(128, 128, 128, 0.3);
+      border-radius: 50%;
+      opacity: 0;
+      animation: smokePuff 2s ease-out forwards;
+    }
+    @keyframes smokePuff {
+      0% { opacity: 0.7; transform: translateX(-50%) translateY(0) scale(0.5); }
+      100% { opacity: 0; transform: translateX(-40%) translateY(-30px) scale(1.5); }
+    }
+
+    /* Removing old glow orbs if tsParticles is primary */
+    .particle-glow-container { display: none; }
+
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react-dom": "https://esm.sh/react-dom@^19.1.0",
+    "framer-motion": "https://esm.sh/framer-motion@^11"
+  }
+}
+</script>
+<!-- tsParticles library -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2/tsparticles.slim.bundle.min.js"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="tsparticles" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -10;"></div>
+  <div id="root"></div>
+  
+  <script type="module" src="/index.tsx"></script>
+  <script>
+    // tsParticles Initialization for "Futuristic + Cute"
+    document.addEventListener('DOMContentLoaded', () => {
+      tsParticles.load("tsparticles", {
+        fpsLimit: 60,
+        particles: {
+          number: {
+            value: 50, // Fewer, softer particles
+            density: {
+              enable: true,
+              value_area: 900 // Larger area for sparser feel
+            }
+          },
+          color: { // Pastel and soft neon colors
+            value: ["#FFB6C1", "#ADD8E6", "#E0B0FF", "#FF69B4", "#FFD700"] // LightPink, LightBlue, LightLavender, HotPink, Gold
+          },
+          shape: {
+            type: ["circle", "star"], // Mix of shapes for cuteness
+          },
+          opacity: {
+            value: {min: 0.2, max: 0.7},
+            animation: {
+              enable: true,
+              speed: 0.8,
+              minimumValue: 0.1
+            }
+          },
+          size: {
+            value: {min: 1, max: 4}, // Slightly larger for a softer look
+            animation: {
+              enable: true,
+              speed: 1.5,
+              minimumValue: 0.8
+            }
+          },
+          links: {
+            enable: true,
+            distance: 130,
+            color: "var(--light-purple)", // Softer link color
+            opacity: 0.2,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 0.8, // Gentle movement
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+          }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "bubble" // "grab" or "repulse" can be too harsh
+            },
+            onclick: {
+              enable: true,
+              mode: "push" 
+            },
+            resize: true
+          },
+          modes: {
+            bubble: {
+              distance: 150,
+              size: 15, // Smaller bubbles
+              duration: 2,
+              opacity: 0.8,
+              color: "#FFC0CB" // Pink bubble
+            },
+            push: {
+              particles_nb: 3
+            },
+          }
+        },
+        detectRetina: true,
+        background: {
+          color: "transparent", 
+        }
+      });
+    });
+  </script>
+</body>
+</html>

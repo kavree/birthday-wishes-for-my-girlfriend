@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffe5d9, #ffd1dc);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .envelope-container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 1s ease;
+        }
+
+        .envelope {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #e6b8e6;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #d8a7d8;
+            transform-origin: bottom;
+            transition: transform 1s ease;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            background-color: white;
+            top: 5%;
+            left: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            transform: translateY(0);
+            transition: transform 1s ease;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .message {
+            font-size: 24px;
+            color: #9b59b6;
+            font-weight: bold;
+        }
+
+        .home-button {
+            position: absolute;
+            bottom: 20px;
+            padding: 10px 20px;
+            background-color: #9b59b6;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            text-decoration: none;
+        }
+
+        .home-button:hover {
+            background-color: #8e44ad;
+        }
+
+        .opened .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        .opened .card {
+            transform: translateY(-150px);
+        }
+
+        .opened .home-button {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope-container" id="envelope">
+        <div class="envelope">
+            <div class="envelope-flap"></div>
+            <div class="card">
+                <div class="message">Happy Birthday my love 💜</div>
+            </div>
+        </div>
+    </div>
+    <a href="home.html" class="home-button">Go to Home</a>
+
+    <script>
+        const envelope = document.getElementById('envelope');
+        
+        envelope.addEventListener('click', () => {
+            envelope.classList.add('opened');
+        });
+    </script>
+</body>
+</html> 
